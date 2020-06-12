@@ -1,6 +1,6 @@
 export class Quote {
     id: number;
-    quote: string;
+    name: string;
     author: string;
     submittedBy: string;
 }
