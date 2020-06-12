@@ -2,9 +2,9 @@
     <h1>Best of Quotes</h1>
     <hr>
     <ul>
-        <li *ngFor='let quote of quotes'>
+        <li *ngFor='let quote of quotes;let i = index'>
             <h3>{{quote.name}}</h3>
-            <app-quote-detail [quote]='quote'></app-quote-detail>
+            <app-quote-detail [quote]='quote' (isComplete) = 'deleteQuote($event,i)'></app-quote-detail>
         </li>
     </ul>
 </div>
