@@ -13,6 +13,16 @@ export class QuoteComponent implements OnInit {
     {id:2,name:'Behind every successful person, lies a pack of haters.',author:'Eminem',submittedBy:'King Kaka'},
     {id:3,name:'It is not important to win, it is important to make the other guy lose.',author:'Anonymous',submittedBy:'Nonini'},
   ]
+
+  deleteQuote(isComplete, index){
+    if (isComplete) {
+      let toDelete = confirm(`Are you sure you want to delete ${this.quotes[index].name}?`)
+
+      if (toDelete){
+        this.quotes.splice(index,1)
+      }
+    }
+  }
   constructor() { }
 
   ngOnInit(){
