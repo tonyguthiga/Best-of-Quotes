@@ -1,4 +1,5 @@
 <p>~ {{quote.author}}</p>
 <p>Submitted by: {{quote.submittedBy}}</p>
-<p>Published on {{quote.date|dateCount}} </p>
-<button (click)='quoteDelete(true)'>Delete</button>
+<p>Published on: {{quote.date|dateCount}} </p>
+<p>on: {{quote.date|date}} </p>
+<button (click)='quoteDelete(true)' class="btn btn-outline-danger">Delete</button>
