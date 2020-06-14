@@ -1,10 +1,14 @@
 <div>
     <h1>Best of Quotes</h1>
     <hr>
-    <ul>
-        <li *ngFor='let quote of quotes;let i = index'>
+    <div class="row">
+        <div class="col-md-4" *ngFor='let quote of quotes;let i = index'>
             <h3>{{quote.name}}</h3>
             <app-quote-detail [quote]='quote' (isComplete) = 'deleteQuote($event,i)'></app-quote-detail>
-        </li>
-    </ul>
+        </div>
+    </div>
+    <button class="btn btn-outlinr-dark btn-change addQuote" type="button" (click)='addQuote()'>Add Your Quote</button>
+    <div class="popUpFormBg" *ngIf='showForm'>
+        <app-quote-form (addQuote)="addNewQuote($event)" (showForm)="hideForm()"></app-quote-form>
+    </div> 
 </div>
