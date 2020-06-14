@@ -1,0 +1,14 @@
+.addQuote {
+    font-size: 24px;
+    font-weight: bold;
+}
+h1{
+    text-align: center;
+    color: red;
+}
+p{
+    text-align: center;
+}
+#yourQuote{
+    text-align: center;
+}
