@@ -2,4 +2,15 @@
 <p>Submitted by: {{quote.submittedBy}}</p>
 <p>Published on: {{quote.date|dateCount}} </p>
 <p>on: {{quote.date|date}} </p>
+
+<div class="vote">
+    <div class="flex-direction-row">
+        <button (click)='upVote(quote)' class="btn-upVote circular"></button>
+        <p>{{quote.upvote}} likes</p>
+    </div>
+    <div class="flex-direction-row">
+        <button (click)='downVote(quote)' class="btn-downVote circular"></button>
+        <p>{{quote.downvote}} dislikes</p>
+    </div>
+</div>
 <button (click)='quoteDelete(true)' class="btn btn-outline-danger">Delete</button>
