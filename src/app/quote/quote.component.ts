@@ -18,11 +18,10 @@ export class QuoteComponent implements OnInit {
     let quoteLength = this.quotes.length;
     quote.id = quoteLength+1;
     quote.date = new Date(quote.date);
-    quote.upVote = quoteLength+1;
-    quote.downVote = quoteLength+1;
+    
     this.quotes.push(quote)
   }
-
+  
   showForm: boolean = false
 
   deleteQuote(isComplete, index){
@@ -46,4 +45,13 @@ export class QuoteComponent implements OnInit {
   hideForm(){
     this.showForm = false
   }
+
+  upVotes:number=0;
+    upVote(){
+      this.upVotes=this.upVotes+1;
+    }
+    downVotes:number=0;
+    downVote(){
+      this.downVotes=this.downVotes+1;
+    }
 }

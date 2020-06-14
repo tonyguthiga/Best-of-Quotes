@@ -8,7 +8,12 @@
             <app-quote-detail  [quote]='quote' (isComplete) = 'deleteQuote($event,i)'></app-quote-detail>
         </div>
     </div>
-    <button class="btn btn-outlinr-dark btn-change addQuote" id="yourQuote" type="button" (click)='addQuote()'>Add Your Quote</button>
+    <div>
+        <br><button class="btn btn-primary" id="up" (click)='upVote()'>upvote <span>{{upVotes}}</span></button>
+        <button class="btn btn-primary" (click)='downVote()'>downvote <span>{{downVotes}}</span></button>
+    </div>
+    <br>
+    <button class="btn btn-outline-dark btn-change addQuote" id="yourQuote" type="button" (click)='addQuote()'>Add Your Quote</button>
     <div class="popUpFormBg" *ngIf='showForm'>
         <app-quote-form (addQuote)="addNewQuote($event)" (showForm)="hideForm()"></app-quote-form>
     </div> 

@@ -22,10 +22,4 @@ export class QuoteDetailComponent implements OnInit {
 
   }
 
-  upVote(quote){
-    this.emitupVote.emit(quote);
-  }
-  downVote(quote){
-    this.emitdownVote.emit(quote);
-  }
 }
