@@ -9,9 +9,9 @@ import { Quote } from '../quote';
 export class QuoteComponent implements OnInit {
 
   quotes:Quote[] = [
-    {id:1,name:'Life is about making an impact, not making an income.',author:'Kevin Kruse',submittedBy:'Tony Guthiga',date: new Date(2020,8,14), upvote: 0,downvote: 0},
-    {id:2,name:'Behind every successful person, lies a pack of haters.',author:'Eminem',submittedBy:'King Kaka',date: new Date(20,6,13),upvote: 0,downvote: 0},
-    {id:3,name:'I always choose a lazy person to do a difficult job because he will find an easy way to do it.',author:'Bill Gate',submittedBy:'Nonini',date: new Date(2018,3,24),upvote: 0,downvote: 0},
+    new Quote(1,'Life is about making an impact, not making an income.','Kevin Kruse','Tony Guthiga',new Date(2020,8,14)),
+    new Quote(2,'Behind every successful person, lies a pack of haters.','Eminem','King Kaka',new Date(20,6,13)),
+    new Quote(3,'I always choose a lazy person to do a difficult job because he will find an easy way to do it.','Bill Gate','Nonini',new Date(2018,3,24))
   ]
 
   addNewQuote(quote){
@@ -46,12 +46,26 @@ export class QuoteComponent implements OnInit {
     this.showForm = false
   }
 
-  upVotes:number=0;
-    upVote(){
-      this.upVotes=this.upVotes+1;
+    upVote(i){
+      this.quotes[i].upVotes+=1;
     }
-    downVotes:number=0;
-    downVote(){
-      this.downVotes=this.downVotes+1;
+
+    downVote(i){
+      this.quotes[i].downVotes+=1;
     }
+
+    originalNum:number
+    lastNum:number
+    counter:number
+
+    highestUpvote(){
+      this.originalNum = 0
+      this.lastNum = 0
+      
+      for(this.counter=0 ; this.counter < this.quotes.length; this.counter++) {
+      this.lastNum = this.quotes[this.counter].upVotes;
+      if(this.lastNum > this.originalNum){this.originalNum = this.lastNum}
+      }
+      return this.originalNum
+      } 
 }
